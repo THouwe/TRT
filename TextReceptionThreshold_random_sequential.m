@@ -301,18 +301,17 @@ for j = 1:nSteps
     end
 end
 
-save([BWD 'example_fullScreen.mat'], 'imageArray_full', 'imageArray_rect');
+c = fix(clock);
 
+sprintf('%02d', options.ptMaskingStart)
 
+baseName = ['TRTmaskers_start_' sprintf('%02d', options.ptMaskingStart) ...
+    '_stepSize_' sprintf('%02d', options.ptMaskingStepSize) ...
+    '_end_' sprintf('%02d', options.ptMaskingEnd) '_' ...
+    num2str(c(1)) '_' num2str(c(2)) '_' num2str(c(3)) '_' num2str(c(4)) '_' num2str(c(5)) '.mat'];
+save([BWD baseName], 'imageArray_full', 'imageArray_rect');
 
-
-
-
-
-
-
-
-
+Screen('Close', window);
 
 
 if options.debugMode == 0
